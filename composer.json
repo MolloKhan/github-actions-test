@@ -1,6 +1,7 @@
 {
     "name": "mollokhan/github-actions-test",
     "description": "Github Actions test",
+    "license": "proprietary",
     "require": {
         "ext-ctype": "*"
     }
