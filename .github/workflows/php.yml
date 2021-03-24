@@ -21,9 +21,7 @@ jobs:
       uses: shivammathur/setup-php@v2
       with:
         php-version: 7.3
-
-    - name: Check PHP version
-      run: php -v
+        tools: symfony-cli
 
     - name: Cache Composer packages
       id: composer-cache
@@ -37,8 +35,8 @@ jobs:
     - name: Install dependencies
       run: composer install --prefer-dist --no-progress --no-suggest
 
-    # Add a test script to composer.json, for instance: "test": "vendor/bin/phpunit"
-    # Docs: https://getcomposer.org/doc/articles/scripts.md
+    - name: Start web server
+      run: symfony serve -d
 
-    # - name: Run test suite
-    #   run: composer run-script test
+    - name: Request to the homepage
+      run: curl 'https://127.0.0.1:8000'
