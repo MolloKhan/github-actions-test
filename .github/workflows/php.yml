@@ -36,7 +36,7 @@ jobs:
       run: composer install --prefer-dist --no-progress --no-suggest
 
     - name: Start web server
-      run: symfony serve -d
+      run: symfony serve -d --no-tls
 
     - name: Request to the homepage
-      run: curl 'https://127.0.0.1:8000'
+      run: curl 'http://127.0.0.1:8000'
